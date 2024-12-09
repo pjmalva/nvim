@@ -27,11 +27,14 @@ return {
       })
 
       local builtin = require("telescope.builtin")
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
+
       vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+      vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
+      vim.keymap.set('n', '<leader>ft', builtin.git_files, {})
       vim.keymap.set("n", "<leader><leader>", builtin.oldfiles, {})
-      vim.keymap.set('n', '<leader>fl', builtin.lsp_references, {})
-      vim.keymap.set('n', '<C-f>', builtin.git_files, {})
+
 
       require("telescope").load_extension("ui-select")
     end,
